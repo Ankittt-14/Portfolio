@@ -49,29 +49,3 @@ const cobs = new IntersectionObserver(entries => {
 }, { threshold: .3 });
 document.querySelectorAll('.stats-inline').forEach(el => cobs.observe(el));
 
-// RESUME MODAL
-const viewResumeBtn = document.getElementById('view-resume-btn');
-const resumeModal = document.getElementById('resume-modal');
-const closeModalBtn = document.getElementById('close-modal-btn');
-
-if (viewResumeBtn && resumeModal && closeModalBtn) {
-  viewResumeBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    resumeModal.classList.add('active');
-    // Prevent body scroll when modal is open
-    document.body.style.overflow = 'hidden';
-  });
-
-  closeModalBtn.addEventListener('click', () => {
-    resumeModal.classList.remove('active');
-    document.body.style.overflow = '';
-  });
-
-  // Close when clicking outside of modal content
-  resumeModal.addEventListener('click', (e) => {
-    if (e.target === resumeModal) {
-      resumeModal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-}
