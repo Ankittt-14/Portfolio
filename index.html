@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ankit Raj — Full Stack Developer</title>
+  
+  <!-- Open Graph / Social SEO -->
+  <meta property="og:title" content="Ankit Raj — Full Stack Developer">
+  <meta property="og:description" content="Portfolio of Ankit Raj, a Full Stack Developer building elegant, scalable, and modern digital experiences.">
+  <meta property="og:image" content="https://ankittt-14.github.io/Portfolio/profile.jpg">
+  <meta property="og:url" content="https://ankittt-14.github.io/Portfolio/">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#111111">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23080808'/><rect width='64' height='64' rx='14' fill='none' stroke='%23c8f04a' stroke-width='2.5'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black, sans-serif' font-weight='900' font-size='28' fill='%23c8f04a' letter-spacing='-1.5'>AR</text></svg>">
+</head>
+
+<body>
+
+  <div class="cur" id="cur"></div>
+  <div class="cur-trail" id="trail"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="logo">Ankit<span>.</span></a>
+    <div class="nav-r">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions" style="display: flex; align-items: center; gap: 1rem;">
+        <div class="resume-dropdown-container">
+          <button class="resume-btn" aria-haspopup="true" aria-expanded="false">
+            Resume
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"
+              style="margin-left: 4px; transition: transform 0.3s; display: inline-block; vertical-align: middle;">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="resume-dropdown">
+            <div class="rd-header">
+              <div class="rd-title-group">
+                <span class="rd-title">Resume</span>
+                <span class="rd-subtitle">Ankit Raj</span>
+              </div>
+              <div class="rd-actions">
+                <button id="view-resume-btn" class="rd-icon" title="View Resume"
+                  style="background:none; border:none; cursor:pointer; padding:0;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="eye-icon">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </button>
+                <a href="ankit-parul.pdf" download class="rd-icon" title="Download Resume">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="rd-divider"></div>
+            <div class="rd-contacts">
+              <a href="mailto:masterrajaniket@gmail.com" class="rd-contact-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" class="mail-icon">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                masterrajaniket@gmail.com
+              </a>
+              <a href="tel:+917858944435" class="rd-contact-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" class="phone-icon">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+                +91 78589 44435
+              </a>
+              <a href="https://www.linkedin.com/in/ankit-raj-73274a197/" target="_blank" class="rd-contact-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" class="linkedin-icon">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                Ankit Raj
+              </a>
+            </div>
+          </div>
+        </div>
+        <a href="mailto:masterrajaniket@gmail.com" class="nav-cta">Hire Me</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        Full Stack Developer · India
+      </div>
+      <h1 class="hero-h1">
+        Building<br>
+        <span class="italic">the future,</span>
+        One <span class="highlight">line</span><br>at a time.
+      </h1>
+      <p class="hero-desc">I'm Ankit Raj — a developer obsessed with crafting fast, scalable, and beautiful web
+        experiences using React, Node.js & MongoDB.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-solid">View My Work</a>
+        <a href="#contact" class="btn-ghost">Let's Talk</a>
+      </div>
+      <div class="hero-chips">
+        <span class="hchip">React.js</span>
+        <span class="hchip">Node.js</span>
+        <span class="hchip">MongoDB</span>
+        <span class="hchip">Socket.io</span>
+        <span class="hchip">React Native</span>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="photo-card">
+        <div class="badge-avail">
+          <span class="badge-dot"></span>
+          Available for work
+        </div>
+        <div class="photo-frame">
+          <img src="profile.jpg" alt="Ankit Raj">
+        </div>
+        <div class="photo-tag">
+          <div class="tag-stat"><span class="val">200+</span><span class="lbl">DSA Solved</span></div>
+          <div class="tag-div"></div>
+          <div class="tag-stat"><span class="val">8.21</span><span class="lbl">CGPA</span></div>
+          <div class="tag-div"></div>
+          <div class="tag-stat"><span class="val">3+</span><span class="lbl">Projects</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-inner">
+      <div class="m-item"><span class="dot">●</span>React.js</div>
+      <div class="m-item"><span class="dot">●</span>Node.js</div>
+      <div class="m-item"><span class="dot">●</span>MongoDB</div>
+      <div class="m-item"><span class="dot">●</span>Express.js</div>
+      <div class="m-item"><span class="dot">●</span>Socket.io</div>
+      <div class="m-item"><span class="dot">●</span>TailwindCSS</div>
+      <div class="m-item"><span class="dot">●</span>React Native</div>
+      <div class="m-item"><span class="dot">●</span>AWS</div>
+      <div class="m-item"><span class="dot">●</span>LeetCode 200+</div>
+      <div class="m-item"><span class="dot">●</span>Full Stack Dev</div>
+      <div class="m-item"><span class="dot">●</span>React.js</div>
+      <div class="m-item"><span class="dot">●</span>Node.js</div>
+      <div class="m-item"><span class="dot">●</span>MongoDB</div>
+      <div class="m-item"><span class="dot">●</span>Express.js</div>
+      <div class="m-item"><span class="dot">●</span>Socket.io</div>
+      <div class="m-item"><span class="dot">●</span>TailwindCSS</div>
+      <div class="m-item"><span class="dot">●</span>React Native</div>
+      <div class="m-item"><span class="dot">●</span>AWS</div>
+      <div class="m-item"><span class="dot">●</span>LeetCode 200+</div>
+      <div class="m-item"><span class="dot">●</span>Full Stack Dev</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="s-label reveal">About Me</div>
+    <h2 class="s-title reveal rd1">The Developer<br><em
+        style="font-style:italic;font-weight:400;color:var(--muted)">Behind the Code</em></h2>
+
+    <div class="about-grid">
+      <div class="about-img reveal">
+        <div class="about-img-inner">
+          <img src="profile.jpg" alt="Ankit Raj">
+        </div>
+        <div class="about-deco">
+          <span class="big">B.Tech</span>
+          <span class="sm">CSE · 2027</span>
+        </div>
+      </div>
+      <div class="about-body">
+        <p class="about-p reveal rd1">
+          Hey, I'm <strong>Ankit Raj</strong> — a passionate Full Stack Developer currently pursuing B.Tech in Computer
+          Science at <strong>Parul Institute of Engineering & Technology</strong> with a CGPA of
+          <strong>8.21/10</strong>.
+        </p>
+        <p class="about-p reveal rd2">
+          I build everything from responsive React frontends to scalable Node.js APIs and real-time systems. My projects
+          span e-commerce automation, real-time chat platforms, and cross-platform mobile apps.
+        </p>
+        <p class="about-p reveal rd3">
+          I also actively sharpen my DSA skills — solving <strong>200+ problems</strong> on LeetCode — because great
+          developers think before they code.
+        </p>
+        <div class="stats-inline reveal rd4">
+          <div class="si"><span class="v" data-count="10" data-s="+">0</span><span class="l">Projects</span></div>
+          <div class="si"><span class="v" data-count="200" data-s="+">0</span><span class="l">LeetCode</span></div>
+          <div class="si"><span class="v" data-count="8.3" data-dec="true">0</span><span class="l">CGPA</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="s-label reveal">My Work</div>
+    <h2 class="s-title reveal rd1">Selected <em
+        style="font-style:italic;font-weight:400;color:var(--muted)">Projects</em></h2>
+
+    <div class="proj-grid">
+      <div class="proj-card wide reveal">
+        <div class="pc-top">
+          <div class="pc-icon">💰</div>
+          <span class="pc-num">01 / Featured</span>
+        </div>
+        <div class="pc-name">Smart Price Tracker</div>
+        <div class="pc-desc">A full-stack e-commerce price monitoring platform that tracks products across Amazon,
+          Flipkart & Myntra. Features real-time price history charts, automated web scraping, and email drop alerts — so
+          you never miss a deal.</div>
+        <div class="pc-chips">
+          <span class="pchip">React</span><span class="pchip">Node.js</span><span class="pchip">MongoDB
+            Atlas</span><span class="pchip">Puppeteer</span><span class="pchip">Cheerio</span><span
+            class="pchip">Nodemailer</span><span class="pchip">Recharts</span>
+        </div>
+        <a href="https://github.com/Ankittt-14/smart-price-tracker" target="_blank" class="pc-link">View Project ↗</a>
+      </div>
+
+      <div class="proj-card reveal rd1">
+        <div class="pc-top">
+          <div class="pc-icon">💬</div>
+          <span class="pc-num">02</span>
+        </div>
+        <div class="pc-name">Gossip-Go</div>
+        <div class="pc-desc">Real-time messaging platform with private & group chats, typing indicators, online status,
+          and unread badges. Built with JWT auth and Socket.io for instant communication.</div>
+        <div class="pc-chips">
+          <span class="pchip">React.js</span><span class="pchip">Socket.io</span><span
+            class="pchip">Express.js</span><span class="pchip">MongoDB</span><span class="pchip">JWT</span>
+        </div>
+        <a href="https://github.com/Ankittt-14/Gossip-Go" target="_blank" class="pc-link">View Project ↗</a>
+      </div>
+
+      <div class="proj-card reveal rd2">
+        <div class="pc-top">
+          <div class="pc-icon">🌤️</div>
+          <span class="pc-num">03</span>
+        </div>
+        <div class="pc-name">Nimbus Weather</div>
+        <div class="pc-desc">Premium mobile weather app using GPS-based real-time data. Features dynamic gradient
+          themes, smooth animations, haptic feedback, and a clean responsive UI built in React Native.</div>
+        <div class="pc-chips">
+          <span class="pchip">React Native</span><span class="pchip">Expo</span><span
+            class="pchip">OpenWeatherMap</span><span class="pchip">Axios</span><span class="pchip">AsyncStorage</span>
+        </div>
+        <a href="https://github.com/Ankittt-14/Nimbus" target="_blank" class="pc-link">View Project ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="s-label reveal">Expertise</div>
+    <h2 class="s-title reveal rd1">Technical <em
+        style="font-style:italic;font-weight:400;color:var(--muted)">Skills</em></h2>
+
+    <div class="skills-layout">
+      <div>
+        <div class="skill-category reveal">
+          <div class="sk-cat">Frontend</div>
+          <div class="sk-item">
+            <div class="sk-row"><span class="sk-name">React.js</span><span class="sk-val">90%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-w="90"></div>
+            </div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-row"><span class="sk-name">HTML / CSS</span><span class="sk-val">93%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-w="93"></div>
+            </div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-row"><span class="sk-name">TailwindCSS</span><span class="sk-val">85%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-w="85"></div>
+            </div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-row"><span class="sk-name">React Native</span><span class="sk-val">76%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-w="76"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category reveal rd1">
+          <div class="sk-cat">Languages</div>
+          <div class="sk-item">
+            <div class="sk-row"><span class="sk-name">JavaScript</span><span class="sk-val">88%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-w="88"></div>
+            </div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-row"><span class="sk-name">C / C++</span><span class="sk-val">82%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-w="82"></div>
+            </div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-row"><span class="sk-name">Python</span><span class="sk-val">70%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-w="70"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-category reveal rd2">
+          <div class="sk-cat">Backend & Database</div>
+          <div class="sk-item">
+            <div class="sk-row"><span class="sk-name">Node.js + Express</span><span class="sk-val">87%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-w="87"></div>
+            </div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-row"><span class="sk-name">MongoDB</span><span class="sk-val">85%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-w="85"></div>
+            </div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-row"><span class="sk-name">REST APIs</span><span class="sk-val">88%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-w="88"></div>
+            </div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-row"><span class="sk-name">Socket.io</span><span class="sk-val">80%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-w="80"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category reveal rd3">
+          <div class="sk-cat">Tools & Cloud</div>
+          <div class="sk-item">
+            <div class="sk-row"><span class="sk-name">Git & GitHub</span><span class="sk-val">90%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-w="90"></div>
+            </div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-row"><span class="sk-name">AWS</span><span class="sk-val">65%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-w="65"></div>
+            </div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-row"><span class="sk-name">Postman</span><span class="sk-val">84%</span></div>
+            <div class="sk-track">
+              <div class="sk-fill" data-w="84"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="s-label reveal">Get In Touch</div>
+    <h2 class="s-title reveal rd1">Let's Work <em
+        style="font-style:italic;font-weight:400;color:var(--muted)">Together</em></h2>
+
+    <div class="contact-inner">
+      <div class="contact-left">
+        <p class="c-desc reveal rd1">
+          Have a project in mind or want to discuss the latest tech? I'm always open to new opportunities and
+          collaborations. Feel free to reach out via the form or my contacts below.
+        </p>
+
+        <div class="contact-cards reveal rd2">
+          <a href="mailto:masterrajaniket@gmail.com" class="c-card">
+            <div class="c-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div class="c-card-info">
+              <span class="c-card-lbl">Email Me</span>
+              <span class="c-card-val">masterrajaniket@gmail.com</span>
+            </div>
+          </a>
+          <a href="tel:+917858944435" class="c-card">
+            <div class="c-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+            </div>
+            <div class="c-card-info">
+              <span class="c-card-lbl">Call Me</span>
+              <span class="c-card-val">+91 78589 44435</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="socials-row reveal rd3">
+          <a href="https://www.linkedin.com/in/ankit-raj-73274a197/" target="_blank" class="soc-icon-btn"
+            title="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <a href="https://github.com/Ankittt-14" target="_blank" class="soc-icon-btn" title="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+            </svg>
+          </a>
+          <a href="https://leetcode.com/u/Ankit_raj_14/" target="_blank" class="soc-icon-btn" title="LeetCode">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M13.483 0a1.374 1.374 0 00-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 00-1.209 2.104 5.35 5.35 0 00-.125.513 5.527 5.527 0 00.062 2.362 5.83 5.83 0 00.349 1.017 5.938 5.938 0 001.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 00-1.951-.003l-2.396 2.392a3.021 3.021 0 01-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 01.066-.523 2.545 2.545 0 01.619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 00-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0013.483 0zm-2.866 12.815a1.38 1.38 0 00-1.38 1.382 1.38 1.38 0 001.38 1.382H20.79a1.38 1.38 0 001.38-1.382 1.38 1.38 0 00-1.38-1.382z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-right reveal rd2">
+        <form class="contact-form" action="https://formsubmit.co/masterrajaniket@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Portfolio Message!">
+          <input type="hidden" name="_template" value="box">
+          <input type="hidden" name="_next" value="https://ankittt-14.github.io/Portfolio/success.html">
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="How can I help you?" rows="4" required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" aria-label="Send Message">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME MODAL -->
+  <div id="resume-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Resume - Ankit Raj</h3>
+        <button id="close-modal-btn" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <iframe src="ankit-parul.pdf" title="Resume PDF"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 <span class="footer-accent">Ankit Raj</span>. All rights reserved.</p>
+    <p>Designed & developed with care 🤍</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
