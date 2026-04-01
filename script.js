@@ -52,9 +52,8 @@ const skObs = new IntersectionObserver(entries => {
 document.querySelectorAll('.sk-group').forEach(g => skObs.observe(g));
 
 
-// TELEGRAM CONTACT FORM
-const BOT_TOKEN = '8663994603:AAH5sEcZnVujXMPL7q-wCjY6A-yPSBGA2ZU';
-const CHAT_ID   = '7138121677';
+// SECURE CONTACT FORM (via Cloudflare Worker)
+const WORKER_URL = 'https://portfolio-contact.pvtankit7858.workers.dev/';
 
 document.querySelector('.contact-form').addEventListener('submit', async function (e) {
   e.preventDefault();
@@ -70,34 +69,28 @@ document.querySelector('.contact-form').addEventListener('submit', async functio
   const message = document.getElementById('message').value.trim();
   const btn     = this.querySelector('.submit-btn');
 
-  const text =
-    `<b>📬 New Portfolio Message!</b>\n\n` +
-    `<b>👤 Name:</b> ${name}\n` +
-    `<b>📧 Email:</b> ${email}\n` +
-    `<b>💬 Message:</b>\n${message}`;
-
   btn.disabled = true;
   btn.textContent = 'Sending…';
 
   try {
-    const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    const res = await fetch(WORKER_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML' })
+      body: JSON.stringify({ name, email, message, turnstileResponse })
     });
 
     const data = await res.json();
-    console.log('Telegram response:', data);
+    console.log('Worker response:', data);
 
-    if (data.ok) {
+    if (res.ok && data.success) {
       window.location.href = 'success.html';
     } else {
-      throw new Error('Telegram error: ' + data.description);
+      throw new Error(data.error || 'Failed to send message');
     }
   } catch (err) {
     console.error('Send failed:', err);
     btn.disabled = false;
     btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Send Message`;
-    alert('Error: ' + err.message + '\n\nMake sure you have sent /start to your Telegram bot first!');
+    alert('Error: ' + err.message + '\n\nPlease try again or email me directly.');
   }
 });
