@@ -49,3 +49,44 @@ const cobs = new IntersectionObserver(entries => {
 }, { threshold: .3 });
 document.querySelectorAll('.stats-inline').forEach(el => cobs.observe(el));
 
+// TELEGRAM CONTACT FORM
+const BOT_TOKEN = '8663994603:AAH5sEcZnVujXMPL7q-wCjY6A-yPSBGA2ZU';
+const CHAT_ID   = '7138121677';
+
+document.querySelector('.contact-form').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const name    = document.getElementById('name').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const btn     = this.querySelector('.submit-btn');
+
+  const text =
+    `📬 *New Portfolio Message!*\n\n` +
+    `👤 *Name:* ${name}\n` +
+    `📧 *Email:* ${email}\n` +
+    `💬 *Message:*\n${message}`;
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'Markdown' })
+    });
+
+    const data = await res.json();
+    if (data.ok) {
+      window.location.href = 'success.html';
+    } else {
+      throw new Error(data.description);
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Send Message`;
+    alert('Failed to send. Please email me directly at masterrajaniket@gmail.com');
+    console.error(err);
+  }
+});
