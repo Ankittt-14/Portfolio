@@ -20,16 +20,6 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: .1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// SKILL BARS
-const sobs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    e.target.querySelectorAll('.sk-fill').forEach(b => {
-      setTimeout(() => b.style.width = b.dataset.w + '%', 200);
-    });
-  });
-}, { threshold: .2 });
-document.querySelectorAll('.skill-category').forEach(el => sobs.observe(el));
 
 // COUNTERS
 const cobs = new IntersectionObserver(entries => {
@@ -48,6 +38,19 @@ const cobs = new IntersectionObserver(entries => {
   });
 }, { threshold: .3 });
 document.querySelectorAll('.stats-inline').forEach(el => cobs.observe(el));
+
+// SKILL CARD STAGGER
+const skObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.querySelectorAll('.sk-card').forEach((card, i) => {
+      setTimeout(() => card.classList.add('sk-visible'), i * 75);
+    });
+    skObs.unobserve(e.target);
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.sk-group').forEach(g => skObs.observe(g));
+
 
 // TELEGRAM CONTACT FORM
 const BOT_TOKEN = '8663994603:AAH5sEcZnVujXMPL7q-wCjY6A-yPSBGA2ZU';
