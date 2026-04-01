@@ -59,6 +59,12 @@ const CHAT_ID   = '7138121677';
 document.querySelector('.contact-form').addEventListener('submit', async function (e) {
   e.preventDefault();
 
+  const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]')?.value;
+  if (!turnstileResponse) {
+    alert('Please complete the Cloudflare security check before sending.');
+    return;
+  }
+
   const name    = document.getElementById('name').value.trim();
   const email   = document.getElementById('email').value.trim();
   const message = document.getElementById('message').value.trim();
