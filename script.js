@@ -62,10 +62,10 @@ document.querySelector('.contact-form').addEventListener('submit', async functio
   const btn     = this.querySelector('.submit-btn');
 
   const text =
-    `📬 *New Portfolio Message!*\n\n` +
-    `👤 *Name:* ${name}\n` +
-    `📧 *Email:* ${email}\n` +
-    `💬 *Message:*\n${message}`;
+    `<b>📬 New Portfolio Message!</b>\n\n` +
+    `<b>👤 Name:</b> ${name}\n` +
+    `<b>📧 Email:</b> ${email}\n` +
+    `<b>💬 Message:</b>\n${message}`;
 
   btn.disabled = true;
   btn.textContent = 'Sending…';
@@ -74,19 +74,21 @@ document.querySelector('.contact-form').addEventListener('submit', async functio
     const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'Markdown' })
+      body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML' })
     });
 
     const data = await res.json();
+    console.log('Telegram response:', data);
+
     if (data.ok) {
       window.location.href = 'success.html';
     } else {
-      throw new Error(data.description);
+      throw new Error('Telegram error: ' + data.description);
     }
   } catch (err) {
+    console.error('Send failed:', err);
     btn.disabled = false;
     btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Send Message`;
-    alert('Failed to send. Please email me directly at masterrajaniket@gmail.com');
-    console.error(err);
+    alert('Error: ' + err.message + '\n\nMake sure you have sent /start to your Telegram bot first!');
   }
 });
