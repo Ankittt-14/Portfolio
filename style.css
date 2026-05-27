@@ -10,6 +10,7 @@
 
 html {
   scroll-behavior: smooth;
+  transition: background-color 0.45s ease, color 0.45s ease;
 }
 
 :root {
@@ -1559,6 +1560,237 @@ footer p {
 .rd2 { transition-delay: .16s; }
 .rd3 { transition-delay: .24s; }
 .rd4 { transition-delay: .32s; }
+
+/* ─── THEME TOGGLE BUTTON ────────────────────────────────── */
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--muted2);
+  background: transparent;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: rotate(20deg) scale(1.1);
+  box-shadow: 0 0 20px rgba(200, 240, 74, 0.2);
+}
+
+/* Sun shown in dark mode (click = go light), Moon shown in light mode (click = go dark) */
+html[data-theme="dark"]  .icon-sun  { display: block; }
+html[data-theme="dark"]  .icon-moon { display: none; }
+html[data-theme="light"] .icon-sun  { display: none; }
+html[data-theme="light"] .icon-moon { display: block; }
+
+/* ─── LIGHT MODE ─────────────────────────────────────────── */
+html[data-theme="light"] {
+  --bg:         #f5f4ef;
+  --bg2:        #edecea;
+  --bg3:        #e4e3de;
+  --text:       #0d0d0c;
+  --muted:      #6f6e69;
+  --muted2:     #cccbc4;
+  --accent:     #5c7c00;         /* dark olive — readable on light bg */
+  --accent-dim: rgba(92, 124, 0, 0.1);
+  --line:       rgba(0, 0, 0, 0.08);
+}
+
+/* Preserve accent glow on hover effects in light mode */
+html[data-theme="light"] .logo span { text-shadow: none; }
+html[data-theme="light"] .logo:hover span { text-shadow: 0 0 18px rgba(92, 124, 0, 0.5); }
+
+/* Cursor — blend mode normal in light mode (difference looks bad on white) */
+html[data-theme="light"] .cur { mix-blend-mode: normal; background: var(--accent); }
+html[data-theme="light"] .cur-trail { border-color: rgba(92, 124, 0, 0.3); }
+
+/* Nav */
+html[data-theme="light"] nav { background: transparent; }
+html[data-theme="light"] nav.scrolled {
+  background: rgba(245, 244, 239, 0.95);
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+html[data-theme="light"] .resume-dropdown {
+  background: rgba(238, 237, 234, 0.98);
+  border-color: rgba(0, 0, 0, 0.09);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+html[data-theme="light"] .mobile-menu {
+  background: rgba(245, 244, 239, 0.98);
+}
+
+/* Theme toggle in light mode */
+html[data-theme="light"] .theme-toggle:hover {
+  box-shadow: 0 0 20px rgba(92, 124, 0, 0.2);
+}
+
+/* Hero highlight chip (dark text on accent) — keep #000 so it works on both */
+html[data-theme="light"] .hero-h1 .highlight { color: #fff; }
+html[data-theme="light"] .hero-h1 .highlight::before {
+  background: var(--accent);
+  box-shadow: 0 8px 24px rgba(92, 124, 0, 0.25);
+}
+
+/* Ambient orb */
+html[data-theme="light"] #hero::after {
+  background: var(--accent);
+  opacity: 0.06;
+}
+
+/* Photo card */
+html[data-theme="light"] .photo-frame {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+html[data-theme="light"] .photo-card::before {
+  border-color: rgba(92, 124, 0, 0.5);
+  box-shadow: inset 0 0 20px rgba(92, 124, 0, 0.06), 0 0 24px rgba(92, 124, 0, 0.1);
+}
+html[data-theme="light"] .photo-tag,
+html[data-theme="light"] .badge-avail {
+  background: var(--bg3);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Project cards */
+html[data-theme="light"] .proj-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+html[data-theme="light"] .proj-card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(92, 124, 0, 0.35);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.1), 0 0 30px rgba(92, 124, 0, 0.08);
+}
+html[data-theme="light"] .proj-card:hover .pchip {
+  background: rgba(92, 124, 0, 0.07);
+  border-color: rgba(92, 124, 0, 0.3);
+}
+html[data-theme="light"] .proj-card:hover .pc-icon {
+  background: rgba(92, 124, 0, 0.1);
+  border-color: rgba(92, 124, 0, 0.35);
+}
+html[data-theme="light"] .pc-link:hover { color: var(--accent); }
+
+/* ── SKILLS section — lime-washed gradient bg ── */
+html[data-theme="light"] #skills {
+  background: linear-gradient(160deg, #f5f4ee 0%, #eef4e2 55%, #e6f0d8 100%) !important;
+}
+html[data-theme="light"] .sk-card {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+html[data-theme="light"] .sk-card.sk-visible:hover {
+  background: #ffffff;
+  border-color: rgba(200, 240, 74, 0.6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 36px rgba(200, 240, 74, 0.2);
+}
+html[data-theme="light"] .sk-invert-ico i {
+  filter: brightness(0) saturate(100%);
+}
+html[data-theme="light"] .sk-invert-ico.sk-visible:hover i {
+  filter: brightness(0) saturate(100%) !important;
+}
+
+/* ── Stats ── */
+html[data-theme="light"] .stats-inline {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+html[data-theme="light"] .si { border-right-color: rgba(0, 0, 0, 0.08); }
+html[data-theme="light"] .si:hover { background: rgba(200, 240, 74, 0.08); }
+
+/* Social icon buttons */
+html[data-theme="light"] .soc-icon-btn {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+html[data-theme="light"] .soc-icon-btn:hover {
+  background: #c8f04a;
+  border-color: #c8f04a;
+  color: #111110;
+  box-shadow: 0 8px 28px rgba(200, 240, 74, 0.45);
+}
+
+/* ── CONTACT FORM ── */
+html[data-theme="light"] .contact-form {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04), 0 20px 50px rgba(0, 0, 0, 0.07);
+}
+html[data-theme="light"] .form-group input,
+html[data-theme="light"] .form-group textarea {
+  background: #fdfcf7;
+  border-color: rgba(0, 0, 0, 0.09);
+  color: #111110;
+}
+html[data-theme="light"] .form-group input:focus,
+html[data-theme="light"] .form-group textarea:focus {
+  border-color: #c8f04a;
+  box-shadow: 0 0 0 3px rgba(200, 240, 74, 0.22);
+  background: #ffffff;
+}
+/* Solid CTA button — bright lime in light mode (consistent with Hire Me) */
+html[data-theme="light"] .btn-solid {
+  background: #c8f04a;
+  color: #111110;
+  box-shadow: 0 4px 18px rgba(200, 240, 74, 0.4);
+}
+html[data-theme="light"] .btn-solid:hover {
+  background: #b8e040;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(200, 240, 74, 0.55);
+}
+
+.submit-btn {
+  background: #c8f04a;
+  color: #111110;
+  box-shadow: 0 4px 18px rgba(200, 240, 74, 0.35);
+}
+.submit-btn:hover {
+  background: #b8e040;
+  box-shadow: 0 12px 38px rgba(200, 240, 74, 0.55);
+}
+
+/* ── GitHub CTA button ── */
+html[data-theme="light"] .btn-github-all {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+html[data-theme="light"] .btn-github-all:hover {
+  border-color: rgba(200, 240, 74, 0.65);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), 0 0 36px rgba(200, 240, 74, 0.2);
+}
+
+/* ── Marquee ── */
+html[data-theme="light"] .marquee {
+  background: var(--bg3);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+/* ── Section alternating ── */
+html[data-theme="light"] .section:nth-child(even) { background: var(--bg2); }
+
+/* ── Footer ── */
+html[data-theme="light"] footer {
+  background: #fdfcf7;
+  border-color: rgba(0, 0, 0, 0.07);
+}
+
 
 /* ─── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 1024px) {

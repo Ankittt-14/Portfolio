@@ -56,6 +56,32 @@ document.querySelectorAll('.mob-link, .mob-resume, .mob-hire').forEach(link => {
 });
 
 /* ─────────────────────────────────────────
+   LIGHT / DARK THEME TOGGLE
+───────────────────────────────────────── */
+const themeToggle = document.getElementById('themeToggle');
+const htmlEl      = document.documentElement;
+
+// Restore saved theme on page load
+const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+htmlEl.setAttribute('data-theme', savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const current = htmlEl.getAttribute('data-theme');
+  const next    = current === 'dark' ? 'light' : 'dark';
+  htmlEl.setAttribute('data-theme', next);
+  localStorage.setItem('portfolio-theme', next);
+});
+
+// Also close mobile menu if theme toggled while open
+themeToggle.addEventListener('click', () => {
+  if (mobileMenu.classList.contains('open')) {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+/* ─────────────────────────────────────────
    SCROLL REVEAL (IntersectionObserver)
 ───────────────────────────────────────── */
 const revealObs = new IntersectionObserver(entries => {
