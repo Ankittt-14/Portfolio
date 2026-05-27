@@ -1,6 +1,12 @@
 # 🌟 Ankit Raj | Full Stack Developer
 
 <p align="center">
+  <a href="https://ankitraj.qzz.io/" target="_blank">
+    <img src="https://img.shields.io/badge/Live_Demo-⚡_Visit_Portfolio-c8f04a?style=for-the-badge&logo=googlechrome&logoColor=111110" alt="Live Demo" />
+  </a>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
