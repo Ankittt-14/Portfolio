@@ -84,6 +84,57 @@ This portfolio was designed from the ground up to reflect professional excellenc
 
 ---
 
+## 🚀 How to Clone & Run Locally
+
+Want to test this portfolio locally or run the live development server? Follow these simple steps:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Ankittt-14/Portfolio.git
+   cd Portfolio
+   ```
+
+2. **Run a local development server:**
+   You can serve the raw HTML/CSS/JS files using `serve`, `live-server`, or Python's HTTP server:
+   * **Using npm / npx (Recommended):**
+     ```bash
+     npx serve .
+     ```
+   * **Using Python:**
+     ```bash
+     python -m http.server 8000
+     ```
+
+3. **Open the browser:**
+   Go to `http://localhost:3000` (or `http://localhost:8000` if using Python) to view the portfolio!
+
+---
+
+## 🛠️ Customize It For Yourself!
+
+Feel free to fork this repository and customize it to make it your own! Here is how to configure it:
+
+1. **Personalize Content (`index.html`):**
+   * Change the title and meta tags inside `<head>` to match your name and description.
+   * Edit the logo text (line 39) and navigation links.
+   * Update the hero title, introduction, and stats-card metrics.
+   * Modify the projects under the `#projects` section to highlight your own open-source work.
+   * Swap out `profile.jpg` with your own square headshot.
+
+2. **Setup Your Own Turnstile Captcha:**
+   * Sign up at [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) (free bot protection).
+   * Replace the dummy site key in `index.html` (look for `data-sitekey="0x4AAAAAACy9iB5VyvuUhFzk"`) with your own Turnstile site key.
+
+3. **Link Your Socials & Resume:**
+   * Place your resume PDF in the root directory and name it `ankit-parul.pdf` (or rename the reference inside `index.html`).
+   * Update the social links (LinkedIn, GitHub, LeetCode) under the `#contact` section and the dropdown menu.
+
+4. **Deploy Live:**
+   * **GitHub Pages (Fastest):** Push your code to your repository, go to `Settings > Pages`, and select the `main` branch to host it for free!
+   * **Vercel / Netlify:** Import the repository directly and select static configuration.
+
+---
+
 ## 📬 Let's Connect!
 
 I am always looking for exciting opportunities, freelance collaborations, or open-source projects. Feel free to reach out to me!
